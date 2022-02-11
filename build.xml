@@ -33,6 +33,6 @@
 		<!-- Execute SonarQube Scanner for Ant Analysis -->
 		<sonar:sonar />
 	</target>
-
+    <target name="all" depends="clean,compile,sonar" />
 
 </project>
