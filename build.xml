@@ -25,10 +25,7 @@
     <echo message="Please run: $ant -projecthelp"/>
   </target>
   <target name="sonar" depends="compile">
-		<taskdef uri="antlib:org.sonar.ant" resource="org/sonar/ant/antlib.xml">
-			<!-- Update the following line, or put the "sonar-ant-task-*.jar" file in your "$HOME/.ant/lib" folder -->
-			<classpath path="/var/lib/jenkins/workspace/ant-ak/lib/sonarqube-ant-task-*.jar" />
-		</taskdef>
+		
 		
 		<!-- Execute SonarQube Scanner for Ant Analysis -->
 		<sonar:sonar />
