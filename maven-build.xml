@@ -260,7 +260,10 @@
     </taskdef>
  
     <!-- Execute SonarScanner for Ant Analysis -->
-    <sonar:sonar />
-</target>                      
+        <target name="sonar:sonar" depends="clean,compile,test,report,sonar" />
+
+    
+</target> 
+        <target name="rebuild" depends="clean,compile,test,report,sonar" />
 
 </project>
