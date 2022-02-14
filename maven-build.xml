@@ -256,7 +256,7 @@
       <target name="sonar" description="--> run SONAR analysis">
           <taskdef uri="antlib:org.sonar.ant" resource="org/sonar/ant/antlib.xml">
     <classpath path="${ant.library.dir}"/>
-    <classpath path="${mysql.library.dir}"/>
+    
  
     </taskdef>
     
