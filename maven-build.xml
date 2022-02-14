@@ -254,13 +254,7 @@
          ignoreerrors="true"/>
   </target>
 
-    
  
-    </taskdef>
-    
- 
-    <!-- Execute SonarScanner for Ant Analysis -->
-        <sonar:sonar/>
 
     
 </target> 
