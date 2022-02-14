@@ -21,6 +21,8 @@
   <!-- Build environment properties                                           -->
   <!-- ====================================================================== -->
 
+  
+  <property name="sonar.host.url" value="https://sonarqube-demo-di.apps.cicd.arcus.soprasteria.com/" />
   <property file="${user.home}/.m2/maven.properties"/>
   <property file="maven-build.properties"/>
 
@@ -253,9 +255,7 @@
          usetimestamp="false" 
          ignoreerrors="true"/>
   </target>
-      <target name="sonar" description="--> run SONAR analysis">
-          <taskdef uri="antlib:org.sonar.ant" resource="org/sonar/ant/antlib.xml">
-    <classpath path="${ant.library.dir}"/>
+    
     
  
     </taskdef>
