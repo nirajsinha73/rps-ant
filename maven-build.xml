@@ -260,7 +260,7 @@
     </taskdef>
  
     <!-- Execute SonarScanner for Ant Analysis -->
-        <target name="sonar:sonar" depends="clean,compile,test,report,sonar" />
+        <sonar:sonar/>
 
     
 </target> 
