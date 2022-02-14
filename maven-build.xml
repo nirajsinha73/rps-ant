@@ -15,7 +15,7 @@
 <!--                                                                        -->
 <!-- ====================================================================== -->
 
-<project name="roshambo-from-maven" default="package" basedir="."xmlns:sonar="antlib:org.sonar.ant>
+<project name="roshambo-from-maven" default="package" basedir="." xmlns:sonar="antlib:org.sonar.ant">
 
   <!-- ====================================================================== -->
   <!-- Build environment properties                                           -->
