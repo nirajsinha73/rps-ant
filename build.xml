@@ -10,8 +10,6 @@
   <!-- Import maven-build.xml into the current project                        -->
   <!-- ====================================================================== -->
 
-<project name="My Project" default="all" basedir="." xmlns:sonar="antlib:org.sonar.ant">
-...
   
 <!-- Define the SonarQube global properties (the most usual way is to pass these properties via the command line) -->
 <property name="sonar.host.url" value="http://localhost:9000" />
