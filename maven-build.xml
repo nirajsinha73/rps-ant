@@ -15,7 +15,7 @@
 <!--                                                                        -->
 <!-- ====================================================================== -->
 
-<project name="roshambo-from-maven" default="package" basedir=".">
+<project name="roshambo-from-maven" default="package" basedir="."xmlns:sonar="antlib:org.sonar.ant>
 
   <!-- ====================================================================== -->
   <!-- Build environment properties                                           -->
@@ -38,6 +38,14 @@
   <property name="maven.repo.local" value="${user.home}/.m2/repository"/>
   <property name="maven.settings.offline" value="false"/>
   <property name="maven.settings.interactiveMode" value="true"/>
+  
+  <property name="sonar.projectKey" value="org.sonarqube:sonarqube-scanner-ant" />
+<property name="sonar.projectName" value="roshambo" />
+<property name="sonar.projectVersion" value="1.0" />
+<property name="sonar.sources" value="src" />
+<property name="sonar.java.binaries" value="build" />
+<property name="sonar.java.libraries" value="lib/*.jar" />
+  
 
   <!-- ====================================================================== -->
   <!-- Defining classpaths                                                    -->
@@ -245,5 +253,14 @@
          usetimestamp="false" 
          ignoreerrors="true"/>
   </target>
+      <target name="sonar">
+    <taskdef uri="antlib:org.sonar.ant" resource="org/sonar/ant/antlib.xml">
+        <!-- Update the following line, or put the "sonarqube-ant-task-*.jar" file in your "$HOME/.ant/lib" folder -->
+        <classpath path="$HOME/.ant/lib/sonarqube-ant-task-*.jar" />
+    </taskdef>
+ 
+    <!-- Execute SonarScanner for Ant Analysis -->
+    <sonar:sonar />
+</target>                      
 
 </project>
