@@ -5,7 +5,7 @@
 <!-- ====================================================================== -->
 
 <project name="roshambo" default="package" basedir=".">
-...
+
   <!-- ====================================================================== -->
   <!-- Import maven-build.xml into the current project                        -->
   <!-- ====================================================================== -->
@@ -14,7 +14,7 @@
 <!-- Define the SonarQube global properties (the most usual way is to pass these properties via the command line) -->
 <property name="sonar.host.url" value="http://localhost:9000" />
  
-...
+
   
 <!-- Define the SonarQube project properties -->
 <property name="sonar.projectKey" value="org.sonarqube:sonarqube-scanner-ant" />
