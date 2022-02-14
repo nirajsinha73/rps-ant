@@ -24,12 +24,13 @@
   <target name="help">
     <echo message="Please run: $ant -projecthelp"/>
   </target>
-  <target name="sonar" depends="compile">
-		
-		
-		<!-- Execute SonarQube Scanner for Ant Analysis -->
-		<sonar:sonar />
-	</target>
-    <target name="all" depends="clean,compile,sonar" />
-
+  <target name="sonar">
+    <taskdef uri="antlib:org.sonar.ant" resource="org/sonar/ant/antlib.xml">
+        <!-- Update the following line, or put the "sonarqube-ant-task-*.jar" file in your "$HOME/.ant/lib" folder -->
+        <classpath path="Workspace/sonar/ant/task/lib/sonarqube-ant-task-*.jar" />
+    </taskdef>
+ 
+    <!-- Execute SonarScanner for Ant Analysis -->
+    <sonar:sonar />
+</target>
 </project>
