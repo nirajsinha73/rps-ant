@@ -10,7 +10,7 @@
   <!-- Import maven-build.xml into the current project                        -->
   <!-- ====================================================================== -->
 
- 
+ <import file="maven-build.xml"/>
   <property name="sonar.projectKey" value="roshambo" />
 	<property name="sonar.projectName" value="roshambo" />
 	<property name="sonar.projectVersion" value="1.0" />
