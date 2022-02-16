@@ -29,11 +29,16 @@
   <property name="sonar.java.source" value="1.6" />
   <property name="sonar.java.target" value="1.6" />
 	
-  <target name="sonar">
-    <!-- Import Sonar Ant tasks -->
+<target name="sonar" depends="cleanclasses">
+      <!-- Add the Sonar task -->
     <taskdef uri="antlib:org.sonar.ant" resource="antlib.xml">
-      <classpath path="../../target/sonar-ant-task.jar" />
+        <classpath path="var/lib/jenkins/workspace/ant-ak/sonar-ant-task-*.jar" />
     </taskdef>
+    <property name="sonar.sources" value="src" />
+    <property name="sonar.projectKey" value="Sample" />
+    ...
+    <sonarns:sonar xmlns:sonarns="antlib:org.sonar.ant" />
+</target>
 
     <!-- Execute Sonar -->
     <sonar:sonar />
