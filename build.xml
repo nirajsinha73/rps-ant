@@ -36,7 +36,6 @@
     </taskdef>
     <property name="sonar.sources" value="src" />
     <property name="sonar.projectKey" value="Sample" />
-    ...
     <sonarns:sonar xmlns:sonarns="antlib:org.sonar.ant" />
 </target>
 
