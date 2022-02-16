@@ -1,34 +1,51 @@
-<?xml version="1.0" encoding="UTF-8"?>
+   
+  <?xml version="1.0" encoding="UTF-8"?>
+<project name="rps-ant" default="all" basedir="." xmlns:sonar="antlib:org.sonar.ant">
 
-<!-- ====================================================================== -->
-<!-- Ant build file (http://ant.apache.org/) for Ant 1.6.2 or above.        -->
-<!-- ====================================================================== -->
+  <property name="src.dir" value="src" />
 
-<project name="roshambo" default="package" basedir=".">
+  <property name="build.dir" value="target" />
 
-  <!-- ====================================================================== -->
-  <!-- Import maven-build.xml into the current project                        -->
-  <!-- ====================================================================== -->
+  <property name="classes.dir" value="${build.dir}/classes" />
 
-  
-<!-- Define the SonarQube global properties (the most usual way is to pass these properties via the command line) -->
-<property name="sonar.host.url" value="http://localhost:9000" />
- 
+  <path id="classpath">
+  </path>
 
-  
-<!-- Define the SonarQube project properties -->
-<property name="sonar.projectKey" value="org.sonarqube:sonarqube-scanner-ant" />
-<property name="sonar.projectName" value="Example of SonarScanner for Ant Usage" />
-<property name="sonar.projectVersion" value="1.0" />
-<property name="sonar.sources" value="src" />
-<property name="sonar.java.binaries" value="build" />
-<property name="sonar.java.libraries" value="lib/*.jar" />
-  
-  <!-- ====================================================================== -->
-  <!-- Help target                                                            -->
-  <!-- ====================================================================== -->
- <target name="help">
-    <echo message="Please run: $ant -projecthelp"/>
+  <target name="clean" description="Remove all files created by the build process.">
+    <delete dir="${build.dir}" />
   </target>
-  
-</project>
+
+  <target name="init">
+    <mkdir dir="${build.dir}" />
+    <mkdir dir="${classes.dir}" />
+  </target>
+
+  <target name="compile" depends="init">
+    <javac srcdir="${src.dir}" destdir="${classes.dir}" source="1.5" target="1.5" classpathref="classpath" fork="true" debug="true" includeAntRuntime="false" />
+  </target>
+
+  <!-- Define Sonar Properties -->
+  <property name="sonar.projectKey" value="org.sonar.ant.tests:java-version" />
+  <property name="sonar.projectName" value="rps-ant" />
+  <property name="sonar.projectVersion" value="0.1-SNAPSHOT" />
+  <property name="sonar.sources" value="${src.dir}" />
+  <property name="sonar.binaries" value="${classes.dir}" />
+  <property name="sonar.profile" value="java-version" />
+  <property name="sonar.java.source" value="1.6" />
+  <property name="sonar.java.target" value="1.6" />
+	
+  <target name="sonar">
+    <!-- Import Sonar Ant tasks -->
+    <taskdef uri="antlib:org.sonar.ant" resource="org/sonar/ant/antlib.xml">
+      <classpath path="../../target/sonar-ant-task.jar" />
+    </taskdef>
+
+    <!-- Execute Sonar -->
+    <sonar:sonar />
+  </target>
+
+  <target name="all"
+          depends="clean,compile,sonar" />
+
+</project>}
+    
