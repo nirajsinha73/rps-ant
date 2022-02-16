@@ -29,11 +29,6 @@
   <property name="sonar.java.source" value="1.6" />
   <property name="sonar.java.target" value="1.6" />
 	
-  <target name="sonar">
-    <!-- Import Sonar Ant tasks -->
-    <taskdef uri="antlib:org.sonar.ant" resource="org/sonar/ant/antlib.xml">
-      <classpath path="../../target/sonar-ant-task.jar" />
-    </taskdef>
 
     <!-- Execute Sonar -->
     <sonar:sonar />
