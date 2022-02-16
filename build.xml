@@ -42,7 +42,7 @@
     <!-- Execute Sonar -->
     <sonar:sonar />
   </target>
-
+</project>
   <target name="all"
           depends="clean,compile,sonar" />
-</project>
+
